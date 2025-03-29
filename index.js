@@ -8,12 +8,13 @@ const app = express();
 const server = http.createServer(app);
 const io = new Server(server, {
   cors: {
-    origin: 'http://localhost:3000', 
+    origin: 'https://whisper-room-j0x0z9qyg-mskothari07s-projects.vercel.app/', 
     methods: ['GET', 'POST']
   }
 });
 
-const redis = new Redis();
+
+const redis = new Redis(process.env.REDIS_URL); 
 
 io.on('connection', (socket) => {
   console.log('New client connected:', socket.id);
@@ -64,6 +65,6 @@ io.on('connection', (socket) => {
   })
 });
 
-server.listen(4000, () => {
+server.listen(process.env.PORT, () => {
   console.log('Server running on port 4000');
 });
