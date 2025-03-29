@@ -8,7 +8,7 @@ const app = express();
 const server = http.createServer(app);
 const io = new Server(server, {
   cors: {
-    origin: 'https://whisper-room-j0x0z9qyg-mskothari07s-projects.vercel.app/', 
+    origin: 'https://whisper-room-ji640dt5e-mskothari07s-projects.vercel.app/', 
     methods: ['GET', 'POST']
   }
 });
